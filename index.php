@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>VideoTube</title>
+    <title>RDKannel</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -16,12 +16,21 @@
 
         <div id = "mastHeadContainer">
             <button class = "navShowHide">
-                <img src= "assets/images/icons/menu.png">
+                <img src= "assets/images/icons/menuLogo.png">
             </button>
 
             <a class = "logoContainer" href="index.php">
-                <img src = "assets/images/icons/VideoTubeLogo.png">
+                <img src= "assets/images/icons/MainLogo.png" title = "logo" alt ="Site logo">
             </a>
+
+            <div class = "searchBarContainer">
+                <form action="search.php" method = "GET">
+                    <input type="text" class = "searchBar" name = "term" placeholder = "Search...">
+                    <button class = "searchButton">
+                        <img src= "assets/images/icons/search.png">
+                    </button>
+                </form>
+            </div>
 
         </div>
 
