@@ -15,14 +15,22 @@
     <div id = "pageContainer">
 
         <div id = "mastHeadContainer">
-            <button class = "navShowHide">Click Me!</button>
+            <button class = "navShowHide">
+                <img src= "assets/images/icons/menu.png">
+            </button>
+
+            <a class = "logoContainer" href="index.php">
+                <img src = "assets/images/icons/VideoTubeLogo.png">
+            </a>
+
         </div>
 
-        <div id = "sideNavContainer">
+        <div id = "sideNavContainer" style = "display:none;">
 
         </div>
 
         <div id = "mainSectionContainer">
+
             <div id = "mainContentContainer">
                 hello everyone
             </div>
