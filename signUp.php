@@ -7,7 +7,6 @@ require_once("includes/classes/Constants.php");
 $account = new Account($con);
 
 
-
 if(isset($_POST["submitButton"])) {
 
     $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
@@ -24,10 +23,8 @@ if(isset($_POST["submitButton"])) {
     $wasSuccessful = $account->register($firstName, $lastName, $userName, $email, $email2, $password, $password2);
 
     if($wasSuccessful) {
-        echo "SUCCESS";
-    }
-    else{
-        echo "FAILED";
+        $_SESSION["userLoggedIn"] = $userName;
+        header("Location: index.php");
     }
     
 }
