@@ -8,7 +8,7 @@ class VideoInfoSection{
     public function __construct($con, $video, $userLoggedInObj) {
         $this->con = $con;
         $this->video = $video;
-        $this->userLoogedInObj = $userLoggedInObj;
+        $this->userLoggedInObj = $userLoggedInObj;
     }
 
     public function create() {
@@ -38,11 +38,13 @@ class VideoInfoSection{
         $uploadedBy = $this->video->getUploadedBy();
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $uploadedBy);
 
+        
         if($uploadedBy == $this->userLoggedInObj->getUsername()) {
             $actionButton = ButtonProvider::createEditVideoButton($this->video->getId());
         }
         else {
-            $actionButton = "";
+            $userToObject = new User($this->con, $uploadedBy);
+            $actionButton = ButtonProvider::createSubscriberButton($this->con,$userToObject,$this->userLoggedInObj);
         }
 
         return "<div class = 'secondaryInfo'> 
@@ -59,6 +61,10 @@ class VideoInfoSection{
                             </span>
                        </div>
                         $actionButton
+                    </div>
+
+                    <div class ='descriptionContainer'>
+                        $description
                     </div>
 
             </div>";
