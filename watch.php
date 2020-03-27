@@ -3,6 +3,7 @@ require_once("includes/header.php");
 require_once("includes/classes/VideoPlayer.php");
 require_once("includes/classes/VideoInfoSection.php");
 require_once("includes/classes/CommentSection.php");
+require_once("includes/classes/Comment.php");
 
 if(!isset($_GET["id"])) {
     echo "No url passed into page";
@@ -27,11 +28,16 @@ $video->incrementViews();
 
     $commentSection = new CommentSection($con,$video,$userLoggedInObj);
     echo $commentSection->create();
+
 ?>
 
 </div>
 
 <div class = "suggestions">
+    <?php
+    $videoGrid = new VideoGrid($con, $userLoggedInObj);
+    echo $videoGrid->create(null,null,false);
+    ?>
 
 </div>
 
