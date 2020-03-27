@@ -12,12 +12,11 @@ class ButtonProvider{
 
         $image = ($imageSrc == null) ? "" : "<img src='$imageSrc'>";
 
-        $action = ButtonProvider::createLink($action);
+        $action  = ButtonProvider::createLink($action);
 
-
-        return "<button class= '$class' onclick= '$action'>
+        return "<button class='$class' onclick='$action'>
                     $image
-                    <span class= 'text'>$text</span>
+                    <span class='text'>$text</span>
                 </button>";
     }
 
