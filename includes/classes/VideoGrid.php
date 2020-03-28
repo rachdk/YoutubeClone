@@ -47,7 +47,7 @@ class VideoGrid {
     }
 
     public function generateItemsFromVideos($videos) {
-        $elementsHtml =  "";
+        $elementsHtml = "";
 
         foreach($videos as $video) {
             $item = new VideoGridItem($video, $this->largeMode);
@@ -61,25 +61,28 @@ class VideoGrid {
         $filter = "";
 
         if($showFilter) {
-            $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; //host of URL
+            $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            
             $urlArray = parse_url($link);
             $query = $urlArray["query"];
 
-            parse_str($query,$params);
+            parse_str($query, $params);
 
             unset($params["orderBy"]);
             
             $newQuery = http_build_query($params);
+
             $newUrl = basename($_SERVER["PHP_SELF"]) . "?" . $newQuery;
+           
             $filter = "<div class='right'>
-                            <span> Order by : </span>
-                            <a href = '$newUrl&orderBy=uploadDate'>Upload date </a>
-                            <a href = '$newUrl&orderBy=views'>Most viewed</a>
+                            <span>Order by:</span>
+                            <a href='$newUrl&orderBy=uploadDate'>Upload date</a>
+                            <a href='$newUrl&orderBy=views'>Most viewed</a>
                         </div>";
         }
 
         return "<div class='videoGridHeader'>
-                        <div class = 'left'>
+                        <div class='left'>
                             $title
                         </div>
                         $filter
@@ -91,5 +94,6 @@ class VideoGrid {
         $this->largeMode = true;
         return $this->create($videos, $title, $showFilter);
     }
+
 }
 ?>
